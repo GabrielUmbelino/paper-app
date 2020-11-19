@@ -9,7 +9,7 @@ A simple text editor built using React.
 * [Setup](#setup)
 
 ## Objective
-With this project, I had the objective of training my web development skills using the React javascript framework. Having it in mind, I created A text editor app that is possible to create and edit multiple text files.
+With this project, I had the objective of training my web development skills using the React library. Having it in mind, I created A text editor app that is possible to create and edit multiple text files.
 
 ## Challenges
 * Testing: While I was writing this project I used the TDD(Test Driven Development) technique.
