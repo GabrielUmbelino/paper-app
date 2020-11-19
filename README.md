@@ -1,46 +1,45 @@
-# Getting Started with Create React App
+# Paper App 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple text editor built using React.
 
-## Available Scripts
+## Table of contents
+* [Objective](#objective)
+* [Challenges](#chalenges)
+* [Technologies](#technologies)
+* [Setup](#setup)
 
-In the project directory, you can run:
+## Objective
+With this project, I had the objective of training my web development skills using the React javascript framework. Having it in mind, I created A text editor app that is possible to create and edit multiple text files.
 
-### `yarn start`
+## Challenges
+* Testing: While I was writing this project I used the TDD(Test Driven Development) technique.
+I am not used to write code using it, so in the begging it was a little bit of struggling to write components without knowing exactly how it was going to end up looking like, but after a while, you get used to it and start enjoying the advantages of TDD.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* Choosing the right text editing framework: Choosing frameworks is always hard because there is a lot of options and most of them don't have very good documentation, but after testing some of them I end up choosing draft.js that showed been a very good choice even don't have very good typescript support.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Technologies
 
-### `yarn test`
+| Name       | Usage                        |
+| ---------- | ---------------------------- |
+| Firebase   | Request handling             |
+| Jest       | Test framework               |
+| React      | Application rendering        |
+| Typescript | Development language         |
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+## Setup
+Open your favorite terminal and write down or paste the following commands
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+git clone git@github.com:GabrielUmbelino/paper-app.git # Downloads the project
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+cd paper-app # Moves to the project folder
 
-### `yarn eject`
+npm install # Installs project's dependencies
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+npm run test  # Run tests
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+npm run start # Starts the project at http://localhost:3000
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+```

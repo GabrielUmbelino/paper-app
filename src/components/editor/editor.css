@@ -1,0 +1,23 @@
+.rich-editor .DraftEditor-editorContainer {
+  padding: 1rem;
+}
+.draft-editor-wrapper {
+  border: 1px solid #ccc;
+}
+
+.rich-editor .rdw-editor-main {
+  background: white;
+  width: 21cm;
+  height: calc( 100% - 58px );
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 0.5cm;
+  box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
+}
+
+.rdw-editor-wrapper {
+  box-sizing: content-box;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
