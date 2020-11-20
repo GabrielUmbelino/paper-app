@@ -1,21 +1,36 @@
-import React, { useState } from "react";
-import Draft, { htmlToDraft } from "react-wysiwyg-typescript";
-import { EditorComponentProps } from "./editor.types";
-import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import "./editor.css";
+import React, { useState } from "react";
+import { EditorComponentProps } from "./editor.types";
+import { Editor as ReactDraft } from "react-draft-wysiwyg";
+import htmlToDraft from "html-to-draftjs";
+
+import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+import { EditorState, ContentState } from "draft-js";
 
 export const Editor = ({ html }: EditorComponentProps) => {
-  const [editorState, setEditorState] = useState(htmlToDraft(html || ''));
+  let contentState: EditorState;
+  const contentBlock = htmlToDraft(html || "");
+
+  if (contentBlock) {
+    contentState = EditorState.createWithContent(
+      ContentState.createFromBlockArray(contentBlock.contentBlocks)
+    );
+  } else {
+    contentState = EditorState.createEmpty();
+  }
+
+  const [editorState, setEditorState] = useState(() => {
+    return contentState;
+  });
 
   return (
-    <Draft
-      editorState={editorState}
+    <ReactDraft
       wrapperClassName="rich-editor demo-wrapper"
       editorClassName="demo-editor"
-      onEditorStateChange={(editorState) => {
+      editorState={editorState}
+      onEditorStateChange={(editorState: EditorState) => {
         setEditorState(editorState);
       }}
-      placeholder="write something..."
     />
   );
 };
