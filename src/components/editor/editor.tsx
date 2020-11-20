@@ -1,9 +1,8 @@
-import "./editor.css";
+import "./editor.sass";
 import React, { useState } from "react";
 import { EditorComponentProps } from "./editor.types";
 import { Editor as ReactDraft } from "react-draft-wysiwyg";
 import htmlToDraft from "html-to-draftjs";
-
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import { EditorState, ContentState } from "draft-js";
 

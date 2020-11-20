@@ -1,0 +1,40 @@
+.rdw-editor
+  &-wrapper
+    box-sizing: content-box
+    position: absolute
+    width: 100%
+    height: 100%
+
+    .rdw-editor-toolbar
+      flex-flow: row nowrap
+      flex: 1
+      overflow-y: auto
+
+      .rdw
+        &-inline-wrapper,
+        &-block-wrapper,
+        &-fontsize-wrapper,
+        &-fontfamily-wrapper,
+        &-list-wrapper,
+        &-text-align-wrapper,
+        &-colorpicker-wrapper,
+        &-link-wrapper,
+        &-embedded-wrapper,
+        &-emoji-wrapper,
+        &-image-wrapper,
+        &-remove-wrapper,
+        &-history-wrapper,
+	        flex-flow: row nowrap
+
+  &-main.demo-editor
+    background: white
+    width: 21cm
+    height: calc(100% - 120px)
+    max-width: 100%
+    display: block
+    margin: 0 auto
+    margin-bottom: 0.5cm
+    box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5)
+
+    .DraftEditor-editorContainer
+      padding: 1rem
