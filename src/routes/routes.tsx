@@ -1,12 +1,15 @@
-import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-import { DocumentsRoutes, EditorRoutes } from "../components";
+import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { DocumentsRoutes, EditorRoutes } from '../components';
+import { DocumentContextProvider } from '../components/documents/documents.context';
 
 export const Routes = () => {
   return (
-    <Router>
-      <EditorRoutes />
-      <DocumentsRoutes />
-    </Router>
+    <DocumentContextProvider>
+      <Router>
+        <EditorRoutes />
+        <DocumentsRoutes />
+      </Router>
+    </DocumentContextProvider>
   );
 };
