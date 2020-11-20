@@ -1,5 +1,5 @@
-import React from "react";
-import "./header.css";
+import React, { useContext } from 'react';
+import './header.css';
 import {
   AppBar,
   Breadcrumbs,
@@ -7,46 +7,48 @@ import {
   Link,
   Typography,
   Button,
-} from "@material-ui/core";
+} from '@material-ui/core';
+import { DocumentContext } from '../documents/documents.context';
 
 export const Header = () => {
-  const context = {
-    document: {
-      name: null,
-    },
-  };
+  const documentContext = useContext(DocumentContext);
 
   const onSave = (event: React.MouseEvent) => {
-    console.log("on save", event);
+    console.log('on save', event);
   };
 
   return (
     <AppBar position="static" color="default">
       <Toolbar variant="dense">
         <Breadcrumbs aria-label="breadcrumb">
-          <Link color="inherit" href="/documents" onClick={() => {}}>
+          <Link color="inherit" href="/documents">
             Documents
           </Link>
-          {context.document && (
+          {documentContext && (
             <Typography color="textPrimary">
-              {context.document.name || "New Document"}
+              {documentContext.id || 'New Document'}
             </Typography>
           )}
         </Breadcrumbs>
         <div className="toolbar-buttons">
-          {!context.document && (
+          {!documentContext && (
             <Button
               variant="contained"
               color="default"
-              size="small" 
+              size="small"
               component={Button}
               onClick={onSave}
             >
               Save
             </Button>
           )}
-          {context.document && (
-            <Button variant="contained" color="default" href="/document" size="small" >
+          {documentContext && (
+            <Button
+              variant="contained"
+              color="default"
+              href="/document"
+              size="small"
+            >
               New document
             </Button>
           )}
