@@ -1,5 +1,4 @@
 # Paper App 
-
 A simple text editor built using React.
 
 ## Table of contents
@@ -9,13 +8,12 @@ A simple text editor built using React.
 * [Setup](#setup)
 
 ## Objective
-With this project, I had the objective of training my web development skills using the React library. Having it in mind, I created A text editor app that is possible to create and edit multiple text files.
+The objective of this project was to practice my web development skills using the React library. Having this in mind, I created a text editor app that enables the production and edition of multiple text files.
 
 ## Challenges
-* Testing: While I was writing this project I used the TDD(Test Driven Development) technique.
-I am not used to write code using it, so in the begging it was a little bit of struggling to write components without knowing exactly how it was going to end up looking like, but after a while, you get used to it and start enjoying the advantages of TDD.
+* Testing: While writing the project, I used the TDD (Test Driven Development) technique. I do not use to write code with it, so, at first, I struggled a little bit as I had to write components not knowing exactly how they were going to end up looking like, but, after a while, I got familiarized with it and began to enjoy the TDD advantages.
 
-* Choosing the right text editing framework: Choosing frameworks is always hard because there is a lot of options and most of them don't have very good documentation, but after testing some of them I end up choosing draft.js that showed been a very good choice even don't have very good typescript support.
+* Choosing the right text editing framework: Choosing frameworks can be very hard, as there are many options available and most of them don't have well organized documentation. Nevertheless, after testing some of them I ended up opting for draft.js, which has shown to be a great choice, even if it does not have a very good typescript support.
 
 ## Technologies
 
