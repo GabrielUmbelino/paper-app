@@ -3,6 +3,8 @@ import { Header } from './header';
 import { render, screen } from '@testing-library/react';
 import { createMemoryHistory } from 'history';
 import { Router } from 'react-router-dom';
+import { DocumentContext, DocumentContextState } from '../documents';
+import { contextHoc } from '../../utils/contextHoc';
 
 describe('Header', () => {
   it('Header renders app component without crashing', () => {
@@ -13,8 +15,8 @@ describe('Header', () => {
   it('Header is rendered', () => {
     const { container } = render(<Header />);
 
-    const editor = container.querySelector('header');
-    expect(editor).toBeInTheDocument();
+    const header = container.querySelector('header');
+    expect(header).toBeInTheDocument();
   });
 
   it('Header breadcrumbs is rendered for documents page', () => {
@@ -30,31 +32,46 @@ describe('Header', () => {
     expect(screen.getByText(/documents/i)).toBeInTheDocument();
   });
 
-  it('Header Breadcrumbs is rendered for a new document', () => {
-    const { container } = render(<Header />);
-    const breadCrumns = container.querySelector(
-      '.MuiBreadcrumbs-ol .MuiBreadcrumbs-li:last-child p'
-    );
-    expect(breadCrumns?.innerHTML).toContain('New Document');
-  });
+  it('Header buttons when rendered for editing document', () => {
+    const documentState = {
+      location: '/document',
+    } as DocumentContextState;
 
-  it('Header Breadcrumbs is rendered for new document', () => {
-    const history = createMemoryHistory();
-    history.push('/documents/1');
+    const headerComponent = <Header />;
 
     const { container } = render(
-      <Router history={history}>
-        <Header />
-      </Router>
+      contextHoc<DocumentContextState>(
+        DocumentContext,
+        documentState,
+        headerComponent
+      )
     );
 
-    const breadCrumns = container.querySelector(
-      '.MuiBreadcrumbs-ol .MuiBreadcrumbs-li:last-child p'
+    const saveButton = container.querySelector(
+      '.toolbar-buttons .MuiButton-root:last-child span'
     );
-
-    expect(breadCrumns?.innerHTML).toContain('document x');
+    expect(saveButton?.innerHTML).toContain('Save');
   });
 
-  it('When in documents page renders new document button', () => {})
-  it('When in editor page renders save button', () => {})
+  it('Header buttons when rendered for documents page', () => {
+    const documentState = {
+      location: '/documents',
+    } as DocumentContextState;
+
+    const headerComponent = <Header />;
+
+    const { container } = render(
+      contextHoc<DocumentContextState>(
+        DocumentContext,
+        documentState,
+        headerComponent
+      )
+    );
+
+    const newDocumentButton = container.querySelector(
+      '.toolbar-buttons .MuiButton-root:last-child span'
+    );
+
+    expect(newDocumentButton?.innerHTML).toContain('New document');
+  });
 });
