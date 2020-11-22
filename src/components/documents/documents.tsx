@@ -5,32 +5,25 @@ import { DocumentContext } from './documents.context';
 import { DocumentNotFound } from './document-not-found';
 export const Documents = () => {
   const [loading, setLoading] = useState(false);
-  const documentContext = useContext(DocumentContext);
-  const hasDocuments = () =>
-    !documentContext.documents || !documentContext.documents.length;
-
-  const getDocuments = async () => {
-    if (!loading && hasDocuments()) {
-      setLoading(true);
-      axios.get('/documents.json').then((response) => {
-        setLoading(false);
-        documentContext.setDocuments(response.data);
-      });
-    }
-  };
+  const context = useContext(DocumentContext);
 
   useEffect(() => {
-    getDocuments();
-  });
+    setLoading(true);
+    axios.get('/documents.json').then((response) => {
+      setLoading(false);
+      context.setDocuments(response.data);
+    });
+  }, []);
 
   return (
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="md">
-        {hasDocuments() ? (
-          <DocumentNotFound />
+        {loading && loading}
+        {context.documents && context.documents.length ? (
+          <p>{context.documents.length} documents found!</p>
         ) : (
-          <p>{documentContext.documents.length}</p>
+          <DocumentNotFound />
         )}
       </Container>
     </React.Fragment>

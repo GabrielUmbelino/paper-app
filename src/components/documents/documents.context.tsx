@@ -1,30 +1,36 @@
 import React from 'react';
 import { Document } from './documents.types';
 
-interface Props {
+export interface DocumentContextProps {
   children: React.ReactNode;
 }
 
-interface State {
+export interface DocumentContextState {
   id: Document['id'];
+  document: Document;
   documents: Document[];
-  setDocuments: (documents: Document[]) => void;
-
+  location: string;
+  setDocument: (document: Document) => void;
+  setDocuments: (document: Document[]) => void;
+  setLocation: (location: string) => void;
 }
 
-export const DocumentContext = React.createContext<State>({
-  id: '',
-  documents: [],
-  setDocuments: (documents: Document[]) => {},
-});
+export const DocumentContext = React.createContext<DocumentContextState>(
+  {} as DocumentContextState
+);
 
-export class DocumentContextProvider extends React.Component<Props, State> {
-  public state: State = {
+export class DocumentContextProvider extends React.Component<
+  DocumentContextProps,
+  DocumentContextState
+> {
+  public state: DocumentContextState = {
     id: '',
+    location: '',
+    document: {} as Document,
     documents: [],
-    setDocuments: (documents: Document[]) => {
-      this.setState({ documents });
-    },
+    setDocument: (document: Document) => this.setState({ document }),
+    setDocuments: (documents: Document[]) => this.setState({ documents }),
+    setLocation: (location: string) => this.setState({ location }),
   };
 
   public render() {
