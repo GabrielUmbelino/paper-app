@@ -1,6 +1,6 @@
-import React from "react";
-import { Redirect, Route, Switch } from "react-router-dom";
-import { Editor } from "./editor";
+import React from 'react';
+import { Redirect, Route, Switch } from 'react-router-dom';
+import { Editor } from './editor';
 export const EditorRoutes = () => {
   return (
     <Switch>

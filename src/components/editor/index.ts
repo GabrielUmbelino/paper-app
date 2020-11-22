@@ -1,1 +1,1 @@
-export * from './editor.router'
+export * from './editor.router';

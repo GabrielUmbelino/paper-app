@@ -1,3 +1,3 @@
 export interface EditorComponentProps {
-  html?: string,
+  html?: string;
 }
