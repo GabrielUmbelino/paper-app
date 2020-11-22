@@ -1,3 +1,8 @@
 {
-  "extends": 'stylelint-config-standard',
+  "extends": "stylelint-config-sass-guidelines",
+  "rules": {
+    "selector-class-pattern": false
+    "class-name-format": false
+    "propertu-sort-order": false
+  }
 }
