@@ -2,7 +2,6 @@
   "name": "paper-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://gabrielumbelino.github.io/paper-app/",
   "dependencies": {
     "@babel/core": "7.12.3",
     "@material-ui/core": "^4.11.0",
