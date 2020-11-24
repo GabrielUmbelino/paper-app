@@ -28,7 +28,7 @@ export const EditorContainer = () => {
     } else {
       setLoading(false);
     }
-  }, []);
+  }, [params.id, setDocument]);
 
   return (
     <React.Fragment>

@@ -17,7 +17,7 @@ export const Documents = () => {
 
   useEffect(() => {
     getData().then((documents) => context.setDocuments(documents));
-  }, []);
+  }, [context.setDocuments]);
 
   const onDocumentDeleted = (id: Document['id']) =>
     context.setDocuments(context.documents.filter((d) => id !== d.id));
