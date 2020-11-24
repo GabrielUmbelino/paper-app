@@ -1,5 +1,6 @@
 import './header.sass';
 import AddIcon from '@material-ui/icons/Add';
+import PrintIcon from '@material-ui/icons/Print';
 import { useHistory } from 'react-router-dom';
 import { DocumentContext } from '../documents';
 import SaveIcon from '@material-ui/icons/Save';
@@ -57,6 +58,10 @@ export const Header = () => {
     });
   };
 
+  const onPrint = () => {
+    window.print();
+  };
+
   return (
     <AppBar position="static" color="default">
       <Container maxWidth="md">
@@ -65,16 +70,26 @@ export const Header = () => {
           <div className="toolbar-buttons">
             {loading && <CircularProgress />}
             {context.location && context.location.indexOf('documents') <= 0 && (
-              <Button
-                color="primary"
-                size="small"
-                startIcon={<SaveIcon />}
-                component={Button}
-                onClick={onSave}
-                disabled={loading}
-              >
-                Save
-              </Button>
+              <React.Fragment>
+                <Button
+                  color="primary"
+                  size="small"
+                  startIcon={<SaveIcon />}
+                  component={Button}
+                  onClick={onSave}
+                  disabled={loading}
+                >
+                  Save
+                </Button>
+                <Button
+                  color="primary"
+                  onClick={onPrint}
+                  size="small"
+                  startIcon={<PrintIcon />}
+                >
+                  Print
+                </Button>
+              </React.Fragment>
             )}
             {context.location && context.location.indexOf('documents') > 0 && (
               <Button
