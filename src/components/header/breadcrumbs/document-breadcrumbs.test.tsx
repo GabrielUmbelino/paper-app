@@ -1,10 +1,16 @@
+import {
+  Document,
+  DocumentContext,
+  DocumentContextState,
+} from '../../documents';
 import React from 'react';
+import '@testing-library/jest-dom';
 import { Router } from 'react-router-dom';
+import '@testing-library/jest-dom/extend-expect';
 import { createMemoryHistory } from 'history';
-import { contextHoc } from '../../../utils/contextHOC';
+import { contextHoc } from '../../../utils';
 import { render, screen } from '@testing-library/react';
 import { DocumentBreadcrumbs } from './document-breadcrumbs';
-import { DocumentContext, DocumentContextState } from '../../documents';
 
 describe('DocumentBreadcrumbs', () => {
   it('Renders Breadcrumbs without crashing', () => {
@@ -12,7 +18,7 @@ describe('DocumentBreadcrumbs', () => {
     expect(container).toBeInTheDocument();
   });
 
-  it('Breadcrumbs is html is generated', () => {
+  it('Breadcrumbs html is generated', () => {
     const { container } = render(<DocumentBreadcrumbs />);
 
     const breadcrumbs = container.querySelector('.MuiBreadcrumbs-ol');
@@ -46,6 +52,13 @@ describe('DocumentBreadcrumbs', () => {
 
     const documentState = {
       id: '1',
+      location: '',
+      document: {
+        id: '1',
+        name: 'document x',
+        text: '<p>this is a document</p>',
+        createDateTime: '',
+      },
       documents: [
         {
           id: '1',
@@ -54,6 +67,9 @@ describe('DocumentBreadcrumbs', () => {
           createDateTime: '',
         },
       ],
+      setDocument: (document: Document) => {},
+      setDocuments: (documents: Document[]) => {},
+      setLocation: (location: string) => {},
     } as DocumentContextState;
 
     const breadcrumbComponent = (
