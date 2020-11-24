@@ -5,6 +5,7 @@ import { DocumentContext } from '../../documents/documents.context';
 export const DocumentBreadcrumbs = () => {
   const context = useContext(DocumentContext);
   const [showDocumentName, setShowDocumentName] = useState(false);
+
   const onSaveDocumentName = (event: React.KeyboardEvent) =>
     event.key === 'Enter' && setShowDocumentName(false);
 
@@ -27,10 +28,12 @@ export const DocumentBreadcrumbs = () => {
 
   return (
     <Breadcrumbs aria-label="breadcrumb">
-      <Link color="inherit" href="/documents">
-        Documents
-      </Link>
-      {!showDocumentName && (
+      {context.location !== '/documents' && (
+        <Link color="inherit" href="/documents">
+          Documents
+        </Link>
+      )}
+      {!showDocumentName && context.location !== '/documents' && (
         <Typography
           color="textPrimary"
           onClick={() => setShowDocumentName(true)}
