@@ -1,6 +1,7 @@
 # Paper App
 
-A simple text editor built using React.
+A simple text editor built using React. 
+[Demo](https://paper-app.vercel.app/)
 
 ## Table of contents
 
