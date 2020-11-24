@@ -1,3 +1,5 @@
+import { Document } from "../documents";
+
 export interface EditorComponentProps {
-  html?: string;
+  html?: Document['text'];
 }

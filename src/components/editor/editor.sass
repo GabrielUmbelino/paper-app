@@ -3,7 +3,7 @@
     box-sizing: content-box
     position: absolute
     width: 100%
-    height: 100%
+    height: calc(100% - 50px)
 
     .rdw-editor-toolbar
       flex-flow: row nowrap
@@ -24,12 +24,12 @@
         &-image-wrapper,
         &-remove-wrapper,
         &-history-wrapper,
-	        flex-flow: row nowrap
+          flex-flow: row nowrap
 
   &-main.demo-editor
     background: white
     width: 21cm
-    height: calc(100% - 120px)
+    height: calc(100% - 68px)
     max-width: 100%
     display: block
     margin: 0 auto
