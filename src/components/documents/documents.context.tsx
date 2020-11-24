@@ -26,7 +26,10 @@ export class DocumentContextProvider extends React.Component<
   public state: DocumentContextState = {
     id: '',
     location: '',
-    document: {} as Document,
+    document: {
+      name: '',
+      text: '',
+    } as Document,
     documents: [],
     setDocument: (document: Document) => this.setState({ document }),
     setDocuments: (documents: Document[]) => this.setState({ documents }),

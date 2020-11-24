@@ -1,29 +1,38 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { CssBaseline, Container } from '@material-ui/core';
-import axios from 'axios';
+import { CssBaseline, Container, LinearProgress } from '@material-ui/core';
+import { getDocuments } from '../../services';
 import { DocumentContext } from './documents.context';
-import { DocumentNotFound } from './document-not-found';
+import { DocumentList } from './document-list';
+import { documentsToArray } from '../../utils/documentsToArray';
+import { Document } from './documents.types';
 export const Documents = () => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const context = useContext(DocumentContext);
+  const getData = async () => {
+    const data = await getDocuments();
+    setLoading(false);
+    const documents = documentsToArray(data);
+    return documents;
+  };
 
   useEffect(() => {
-    setLoading(true);
-    axios.get('/documents.json').then((response) => {
-      setLoading(false);
-      context.setDocuments(response.data);
-    });
+    getData().then((documents) => context.setDocuments(documents));
   }, []);
+
+  const onDocumentDeleted = (id: Document['id']) =>
+    context.setDocuments(context.documents.filter((d) => id !== d.id));
 
   return (
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="md">
-        {loading && loading}
-        {context.documents && context.documents.length ? (
-          <p>{context.documents.length} documents found!</p>
+        {loading ? (
+          <LinearProgress />
         ) : (
-          <DocumentNotFound />
+          <DocumentList
+            documents={context.documents}
+            onDocumentDeleted={onDocumentDeleted}
+          />
         )}
       </Container>
     </React.Fragment>

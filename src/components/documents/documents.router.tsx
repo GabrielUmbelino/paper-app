@@ -8,7 +8,7 @@ export const DocumentsRoutes = () => {
 
   useEffect(() => {
     setLocation(location.pathname);
-  }, []);
+  }, [location.pathname, setLocation]);
 
   return (
     <Switch>

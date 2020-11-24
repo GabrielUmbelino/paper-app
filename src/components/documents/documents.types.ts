@@ -4,3 +4,7 @@ export interface Document {
   name: string;
   createDateTime: string;
 }
+
+export interface FirebaseDocuments {
+  [key: string]: Document
+}
