@@ -17,7 +17,9 @@ export const DocumentNotFound = () => {
         <Typography color="textPrimary" align="center">
           You seem not to have documents yet, click here to create a new one
         </Typography>
-        <Button href="/document">Create Document</Button>
+        <Button href="/document" color="primary" size="small">
+          Create Document
+        </Button>
       </Box>
     </React.Fragment>
   );
