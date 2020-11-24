@@ -2,6 +2,7 @@
   "name": "paper-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://gabrielumbelino.github.io/paper-app/",
   "dependencies": {
     "@babel/core": "7.12.3",
     "@material-ui/core": "^4.11.0",
@@ -105,6 +106,7 @@
     "lint": "./node_modules/.bin/prettier --config .prettierrc --write 'src/**/*.{ts,tsx,sass,css}' && ./node_modules/.bin/eslint --ext=ts --ext=tsx --fix",
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
+    "deploy": "gh-pages -d build",
     "test": "node scripts/test.js",
     "test:coverage": "CI=true npm test -- --coverage"
   },
@@ -130,6 +132,7 @@
     "@types/draft-js": "^0.10.44",
     "@types/react-draft-wysiwyg": "^1.13.0",
     "axios-mock-adapter": "^1.19.0",
+    "gh-pages": "^3.1.0",
     "husky": "^4.3.0",
     "lint-staged": "^10.5.1",
     "node-sass": "^4.14.1",
