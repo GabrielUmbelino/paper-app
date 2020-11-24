@@ -106,6 +106,7 @@
     "lint": "./node_modules/.bin/prettier --config .prettierrc --write 'src/**/*.{ts,tsx,sass,css}' && ./node_modules/.bin/eslint --ext=ts --ext=tsx --fix",
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "test": "node scripts/test.js",
     "test:coverage": "CI=true npm test -- --coverage"
