@@ -17,7 +17,8 @@ export const Documents = () => {
 
   useEffect(() => {
     getData().then((documents) => context.setDocuments(documents));
-  }, [context.setDocuments]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const onDocumentDeleted = (id: Document['id']) =>
     context.setDocuments(context.documents.filter((d) => id !== d.id));

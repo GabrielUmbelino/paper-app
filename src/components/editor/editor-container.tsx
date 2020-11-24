@@ -28,8 +28,8 @@ export const EditorContainer = () => {
     } else {
       setLoading(false);
     }
-  }, [params.id, setDocument]);
-
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <React.Fragment>
       {loading && <LinearProgress />}
