@@ -50,7 +50,7 @@ describe('Header', () => {
     const saveButton = container.querySelector(
       '.toolbar-buttons .MuiButton-root:last-child span'
     );
-    expect(saveButton?.innerHTML).toContain('Save');
+    expect(saveButton).toBeInTheDocument();
   });
 
   it('Header buttons when rendered for documents page', () => {
