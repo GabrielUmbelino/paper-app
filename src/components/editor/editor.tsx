@@ -113,11 +113,6 @@ export const Editor = ({ text, onEditorChange }: FroalaEditorProps) => {
               'insertHR',
             ],
           ],
-          customImageButtons: {
-            callback: function ($img: any) {
-              alert($img.attr('src'));
-            },
-          },
           imageEditButtons: [
             'imageReplace',
             'imageAlign',
