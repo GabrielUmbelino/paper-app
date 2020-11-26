@@ -1,7 +1,7 @@
 import React from 'react';
 import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
-import { render, waitFor } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { EditorContainer } from './editor-container';
 import { Document, DocumentContext, DocumentContextState } from '../documents';
 import { contextHoc } from '../../utils';
@@ -30,9 +30,10 @@ describe('editor', () => {
       )
     );
 
-    const editor = container.querySelector('.rich-editor');
-    expect(editor).toBeInTheDocument();
+    const editorContainer = container.querySelector('.MuiContainer-root');
+    expect(editorContainer).toBeInTheDocument();
   });
+
   it('editor container loading', async () => {
     const history = createMemoryHistory();
     history.push('/document/1');
@@ -67,6 +68,11 @@ describe('editor', () => {
       document: {
         text: '<p>papapa</p>',
       },
+      documents: [
+        {
+          text: '<p>papapa</p>',
+        },
+      ],
       setDocument: (document: Document) => {},
       setDocuments: (documents: Document[]) => {},
       setLocation: (location: string) => {},
@@ -80,10 +86,8 @@ describe('editor', () => {
         </Router>
       )
     );
-    await waitFor(async () => {
-      expect(
-        container.querySelector('.MuiLinearProgress-root')
-      ).not.toBeInTheDocument();
-    });
+    expect(
+      container.querySelector('.MuiLinearProgress-root')
+    ).not.toBeInTheDocument();
   });
 });
